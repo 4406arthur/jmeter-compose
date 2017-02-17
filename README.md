@@ -5,6 +5,8 @@ this repo is for huge load tesing task.
 use docker-compose scale slave node achieve distributed load tesing.
 
 
+[Tutorial ref](http://www.testautomationguru.com/jmeter-scaling-out-load-servers-using-docker-compose-in-distributed-load-testing/)
+
 ### How do I get set up? ###
 
 * docker-compose up -d

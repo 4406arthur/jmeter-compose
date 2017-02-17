@@ -1,0 +1,18 @@
+version: '2'
+services:
+  slave:
+    image: justb4/jmeter
+    expose:
+     - "1099"
+     - "50000"
+    entrypoint: 
+     - /opt/apache-jmeter-3.1/bin/jmeter-server
+     -  -Dserver.rmi.localport=50000
+     -  -Dserver_port=1099
+  master:
+    image: justb4/jmeter
+    expose:
+     - "60000"
+    links:
+     - slave
+    entrypoint: top -b

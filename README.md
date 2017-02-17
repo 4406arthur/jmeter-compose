@@ -18,3 +18,7 @@ use docker-compose scale slave node achieve distributed load tesing.
 * docker-compose up -d
 * docker-compose scale slave
 * docker exec -it "MASTER's CONTAINER ID" /bin/bash (into master node run non-gui jmeter)
+
+### Visualize data (.jtl)###
+
+[Here is good online tools](https://sense.blazemeter.com/gui/)

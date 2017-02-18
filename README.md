@@ -22,3 +22,8 @@ use docker-compose scale slave node achieve distributed load tesing.
 ### Visualize data (.jtl)###
 
 [Here is good online tools](https://sense.blazemeter.com/gui/)
+
+
+### TODO ###
+
+Docker swarm version.

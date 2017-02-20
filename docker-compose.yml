@@ -1,22 +1,68 @@
-version: '2'
+version: '3'
 services:
   slave:
     image: arthurma/jmeter:3.1
     volumes:
-     - ./testPlan:/home
-    expose:
-     - "1099"
-     - "50000"
+     - test-data:/home
     entrypoint:
      - /opt/apache-jmeter-3.1/bin/jmeter-server
      -  -Dserver.rmi.localport=50000
      -  -Dserver_port=1099
+    deploy:
+      replicas: 3
+      #placement:
+        #constraints: [node.role == worker]
+      restart_policy:
+         condition: on-failure
+         max_attempts: 5
+  slave-2:
+    image: arthurma/jmeter:3.1
+    volumes:
+     - test-data:/home
+    entrypoint:
+     - /opt/apache-jmeter-3.1/bin/jmeter-server
+     -  -Dserver.rmi.localport=50000
+     -  -Dserver_port=1099
+    deploy:
+      replicas: 3
+      #placement:
+        #constraints: [node.role == worker]
+      restart_policy:
+         condition: on-failure
+         max_attempts: 5
+  slave-3:
+    image: arthurma/jmeter:3.1
+    volumes:
+     - test-data:/home
+    entrypoint:
+     - /opt/apache-jmeter-3.1/bin/jmeter-server
+     -  -Dserver.rmi.localport=50000
+     -  -Dserver_port=1099
+    deploy:
+      replicas: 3
+      #placement:
+        #constraints: [node.role == worker]
+      restart_policy:
+         condition: on-failure
+         max_attempts: 5
   master:
     image: arthurma/jmeter:3.1
     volumes:
-     - ./testPlan:/home
-    expose:
-     - "60000"
-    links:
+     - test-data:/home
+    depends_on:
      - slave
     entrypoint: top -b
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]
+      restart_policy:
+         condition: on-failure
+         max_attempts: 5
+volumes:
+  test-data:
+    driver: local
+    driver_opts:
+        o: bind
+        type: none
+        device: /your-test/path/on/host

@@ -1,4 +1,4 @@
-# README #
+# README
 
 this repo is for huge load tesing task.
 
@@ -6,7 +6,7 @@ use docker swarm mode achieve distributed load tesing.
 
 [Tutorial ref](http://www.testautomationguru.com/jmeter-scaling-out-load-servers-using-docker-compose-in-distributed-load-testing/)
 
-###Requirement###
+### Requirement
 
 * basic understand docker-swarm(docker version 1.13)
 * ApacheJmeter(3.1) non-gui mode

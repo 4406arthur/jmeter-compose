@@ -4,17 +4,19 @@ MAINTAINER ArthurMa
 
 
 # Install extra packages
-RUN apk update
-RUN apk upgrade
-RUN apk add ca-certificates && update-ca-certificates
-RUN apk add --update openjdk8-jre tzdata curl bash
-
-# Clean APK cache
-RUN rm -rf /var/cache/apk/*
+RUN \
+  apk update && \
+  apk upgrade && \
+  apk add ca-certificates && update-ca-certificates && \
+  apk add --update openjdk8-jre tzdata curl bash && \
+  # Clean APK cache
+  rm -rf /var/cache/apk/*
 
 # Install Jmeter
-RUN mkdir -p /tmp/jmeter_src
-RUN mkdir -p /opt
+RUN \
+  mkdir -p /tmp/jmeter_src && \
+  mkdir -p /opt
+
 ADD src/apache-jmeter-3.1.tar.gz /opt
 #RUN tar -xzf /tmp/jmeter_src/apache-jmeter-3.1.tar.gz -C /opt && \
    # rm -rf /tmp/apache-jmeter-3.1

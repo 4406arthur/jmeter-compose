@@ -17,12 +17,9 @@ RUN \
   mkdir -p /tmp/jmeter_src && \
   mkdir -p /opt
 
-ADD src/apache-jmeter-3.1.tar.gz /opt
-#RUN tar -xzf /tmp/jmeter_src/apache-jmeter-3.1.tar.gz -C /opt && \
-   # rm -rf /tmp/apache-jmeter-3.1
+ADD jmeter/apache-jmeter-3.2.tar.gz /opt
 
-
-ENV JMETER_HOME /opt/apache-jmeter-3.1
+ENV JMETER_HOME /opt/apache-jmeter-3.2
 ENV JMETER_BIN ${JMETER_HOME}/bin
 
 # Set global PATH such that "jmeter" command is found

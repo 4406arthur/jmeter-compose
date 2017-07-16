@@ -17,7 +17,7 @@ use docker swarm mode achieve distributed load tesing.
 * docker stack deploy -c docker-compose.yml jmeter
 * docker exec -it "MASTER's CONTAINER ID" /bin/bash (into master node run non-gui jmeter)
 
-### Visualize data (.jtl)###
+### Visualize data (.jtl) ###
 
 [Here is good online tools](https://sense.blazemeter.com/gui/)
 
